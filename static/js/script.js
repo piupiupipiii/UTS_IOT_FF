@@ -1,11 +1,12 @@
 fetch('http://127.0.0.1:5000/api/cuaca')
     .then(response => response.json())
     .then(data => {
-
+        // Menampilkan data yang didapatkan
         document.getElementById('submax').textContent = data.submax;
         document.getElementById('suhumin').textContent = data.suhumin;
         document.getElementById('suhurata').textContent = data.suhurata;
 
+        // Menampilkan data suhuMaxHumid
         const suhuMaxHumidDiv = document.getElementById('suhuMaxHumid');
         data.nilai_suhu_max_humid_max.forEach(item => {
             const div = document.createElement('div');
@@ -20,6 +21,7 @@ fetch('http://127.0.0.1:5000/api/cuaca')
             suhuMaxHumidDiv.appendChild(div);
         });
 
+        // Menampilkan data month_year_max
         const monthYearMaxDiv = document.getElementById('monthYearMax');
         data.month_year_max.forEach(item => {
             const div = document.createElement('div');
