@@ -4,92 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuaca Dashboard</title>
-    <!-- Tambahkan link ke Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Tambahkan ikon font awesome jika diperlukan -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <style>
-        .card-body {
-            background-color: #f8f9fa;
-        }
-        h2, h3 {
-            color: #495057;
-        }
-        .container {
-            margin-top: 30px;
-        }
-    </style>
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1 class="text-center my-4">Dashboard Cuaca</h1>
+    <div class="container bg-light p-4">
+        <h1 class="text-center my-5">Dashboard Cuaca</h1>
 
-        <!-- Box untuk suhu -->
-        <div class="row">
-            <div class="col-md-4">
+        <div class="row justify-content-center">
+            <div class="col-md-3 col-sm-6 mb-4">
                 <div class="card shadow-sm">
-                    <div class="card-header bg-primary text-white">
-                        <h4>Suhu Maksimum</h4>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ submax }}°C</h5>
-                        <p class="card-text">Suhu tertinggi yang tercatat di database.</p>
+                    <div class="card-body text-center">
+                        <h5 class="card-title" style="font-size: 1.2rem;">Suhu Maksimum</h5>
+                        <p class="card-text" style="font-size: 1.5rem;">{{ suhumax }}°C</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3 col-sm-6 mb-4">
                 <div class="card shadow-sm">
-                    <div class="card-header bg-info text-white">
-                        <h4>Suhu Minimum</h4>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ suhumax }}°C</h5>
-                        <p class="card-text">Suhu terendah yang tercatat di database.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-header bg-warning text-white">
-                        <h4>Suhu Rata-Rata</h4>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ suhurata }}°C</h5>
-                        <p class="card-text">Rata-rata suhu yang tercatat.</p>
+                    <div class="card-body text-center">
+                        <h5 class="card-title" style="font-size: 1.2rem;">Suhu Minimum</h5>
+                        <p class="card-text" style="font-size: 1.5rem;">{{ suhumin }}°C</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Data Cuaca Maksimum -->
-        <h3 class="my-4">Data Cuaca Maksimum (Suhu & Humid)</h3>
-        <div class="list-group">
-            {% for item in nilai_suhu_max_humid_max %}
-                <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    <div>
-                        <strong>ID:</strong> {{ item.idx }} <br>
-                        <strong>Suhu:</strong> {{ item.suhu }}°C <br>
-                        <strong>Humid:</strong> {{ item.humid }}% <br>
-                        <strong>Kecerahan:</strong> {{ item.kecerahan }} <br>
-                        <small><strong>Timestamp:</strong> {{ item.timestamp }}</small>
+        <div class="row justify-content-center">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title" style="font-size: 1.2rem;">Suhu Rata-Rata</h5>
+                        <p class="card-text" style="font-size: 1.5rem;">{{ suhurata }}°C</p>
                     </div>
-                    <i class="fas fa-thermometer-half"></i>
                 </div>
-            {% endfor %}
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title" style="font-size: 1.2rem;">Jumlah Data Cuaca</h5>
+                        <p class="card-text" style="font-size: 1.5rem;">{{ jumlah_data }}</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Data Bulan dan Tahun -->
-        <h3 class="my-4">Bulan dan Tahun Data Cuaca</h3>
-        <ul class="list-group">
-            {% for month in month_year_max %}
-                <li class="list-group-item">{{ month.month_year }}</li>
-            {% endfor %}
-        </ul>
     </div>
 
-    <!-- Tambahkan script Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 </body>
